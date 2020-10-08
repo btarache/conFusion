@@ -31,15 +31,15 @@
                 </ul>
                 
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#login">
+                    <a role="button" id="loginButton">
                     <span class="fa fa-sign-in"></span> Login</a>
                 </span>
         </div>
     </nav>  
     
+    
 
-
-    <div id="login" class="modal fade" role="dialog">
+    <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <!-- Modal content-->
             <div class="modal-content">
@@ -174,7 +174,7 @@
                 </div>
                 <div class="col-12 col-sm align-self-center ml-auto">
                     <a role="button" class="btn btn-block nav-link btn-warning"
-                    data-toggle="modal" data-target="#reserveModal"
+                    id="reserveButton"
                     data-placement="bottom" href="#reserve">Reserve Table</a>
                     </a>
                 </div>
@@ -361,7 +361,8 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <script>
-        $("#carouselButton").click(function(){
+        $(document).ready(function () {
+            $("#carouselButton").click(function(){
                 if ($("#carouselButton").children("span").hasClass('fa-pause')) {
                     $("#mycarousel").carousel('pause');
                     $("#carouselButton").children("span").removeClass('fa-pause');
@@ -373,18 +374,21 @@
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
             });
+
+
+        
+        $('#loginButton').click(function () {
+          $('#loginModal').modal('show')
+        })
+
+        $('#reserveButton').click(function () {
+          $('#reserveModal').modal('show')
+        })
+
+    })   
     </script>
-    <!-- <script>
-        $(document).ready(function(){
-            $("#mycarousel").carousel( { interval: 2000 } );
-            $("#carousel-pause").click(function(){
-                $("#mycarousel").carousel('pause');
-            });
-            $("#carousel-play").click(function(){
-                $("#mycarousel").carousel('cycle');
-            });
-        });
-    </script> -->
+   
+     
 
 </body>
 
