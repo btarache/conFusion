@@ -1,4 +1,5 @@
 node_modules
+dist
 css/dist/styles.css
 css/styles-backup.css
 css/styles-old.css
